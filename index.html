@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Team Divider</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        //Get "Add player" button
+        const addPlayer = document.getElementById('addPlayer');
+
+        //Get "Are all players in" button
+        const allPlayersAreIn = document.getElementById('allPlayersAreIn');
+
+        const checkInputField = document.getElementById('EnterData');
+
+        // Disable "add player" button for start and wait user write something
+        addPlayer.disabled = true;
+
+
+        // Automatically check in input field
+        checkInputField.addEventListener("keyup", function() {
+
+          const inputFieldValue = document.getElementById('EnterData').value;
+
+          // Check if input field is empty and disable "add player" button if input field is empty
+          if(inputFieldValue.length <= 0) {
+
+          addPlayer.disabled = true;
+
+          } else {
+    
+          addPlayer.disabled = false;
+
+            }
+
+        });
+
+        addPlayer.addEventListener('click', function () {
+
+        const new_player = document.getElementById('EnterData').value;
+
+            if(localStorage.getItem('data') == null) {
+                localStorage.setItem('data', '[]');
+            }
+
+            const added_player = JSON.parse(localStorage.getItem('data'));
+
+            added_player.push(new_player);
+
+            localStorage.setItem('data', JSON.stringify(added_player));
+
+            const setInputValue = document.getElementById('EnterData').value = '';
+            addPlayer.disabled = true;
+
+        });
+
+
+        allPlayersAreIn.addEventListener('click', function () {
+          
+              if(localStorage.getItem('data') != null) {
+                  document.getElementById('allPlayers').innerHTML = JSON.parse(localStorage.getItem('data'));
+              }
+
+        });
+
+  });
+</script>
+</head>
+<body>
+    <div style="width: 100%; height: 100vh;">
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; flex-direction: column">
+            <div style="margin: 20px 0px;"><input id="EnterData" style="max-width: 500px height: 40px;"/></div>
+            <div style="margin: 20px 0px;"><button id="addPlayer">lisää Pelaaja</button></div>
+            <div style="margin: 20px 0px;"><button id="allPlayersAreIn">Kaikki pelaajat syötetty?</button></div>
+            <div style="margin-top: 50px;" id="allPlayers"></div>
+        </div>
+
+    </div>
+</body>
+</html>
