@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width">
   <title>Team Divider</title>
   <script>
+      // Domainiksi "tiimijakaja.fi"
     document.addEventListener("DOMContentLoaded", function () {
 
         //Get "Add player" button
@@ -60,7 +61,50 @@
         allPlayersAreIn.addEventListener('click', function () {
           
               if(localStorage.getItem('data') != null) {
-                  document.getElementById('allPlayers').innerHTML = JSON.parse(localStorage.getItem('data'));
+                
+                // Get given players
+                const array = JSON.parse(localStorage.getItem('data'));
+
+                // Shuffle players
+                function shuffleArray (array) {
+                  for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                return array;
+              };
+
+              // Shuffled players
+              const shuffledArray = shuffleArray(array);
+
+              // Cut shuffled players in to two different teams
+              const fullListPlayers = shuffledArray;
+              const half = Math.ceil(fullListPlayers.length / 2);    
+
+              const firstHalf = fullListPlayers.slice(0, half)
+              const secondHalf = fullListPlayers.slice(half)
+
+              console.log({firstHalf, secondHalf}); 
+
+
+              const getTeamOneList = document.getElementById('team1');
+              for (const teamOne of firstHalf) {
+                  const createItem = document.createElement('li');
+                  const insertPlayer = document.createTextNode(teamOne);
+                  createItem.appendChild(insertPlayer);
+                  getTeamOneList.appendChild(createItem);
+            }
+
+            const getTeamTwoList = document.getElementById('team2');
+              for (const teamTwo of secondHalf) {
+                  const createItem = document.createElement('li');
+                  const insertPlayer = document.createTextNode(teamTwo);
+                  createItem.appendChild(insertPlayer);
+                  getTeamTwoList.appendChild(createItem);
+            }
+
               }
 
         });
@@ -71,10 +115,11 @@
 <body>
     <div style="width: 100%; height: 100vh;">
         <div style="display: flex; align-items: center; justify-content: center; width: 100%; height: 100%; flex-direction: column">
-            <div style="margin: 20px 0px;"><input id="EnterData" style="max-width: 500px height: 40px;"/></div>
+            <div style="margin: 20px 0px;"><input id="EnterData" style="max-width: 500px; height: 40px;"/></div>
             <div style="margin: 20px 0px;"><button id="addPlayer">lisää Pelaaja</button></div>
             <div style="margin: 20px 0px;"><button id="allPlayersAreIn">Kaikki pelaajat syötetty?</button></div>
-            <div style="margin-top: 50px;" id="allPlayers"></div>
+            <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
+            <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
         </div>
 
     </div>
