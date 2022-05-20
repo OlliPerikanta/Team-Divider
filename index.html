@@ -17,6 +17,10 @@
         //Get "Make teams" button
         const allPlayersAreIn = document.getElementById('allPlayersAreIn');
 
+        //Reset button
+        const reset = document.getElementById('resetEverything');
+
+        // Input id
         const checkInputField = document.getElementById('EnterData');
 
         // Disable "add player" button for start and wait user write something
@@ -25,8 +29,11 @@
         // Hide "Make teams" button
         allPlayersAreIn.style.display = 'none';
 
-        // Hide step two button
-        stepTwo.style.display = 'none';
+        // Hide "reset" button
+        reset.style.display = 'none';
+
+         // Hide "step two" button
+         stepTwo.style.display = 'none';
 
         if(localStorage.getItem('data') != null) {
 
@@ -39,7 +46,7 @@
           addPlayer.remove();
           stepTwo.remove();
           allPlayersAreIn.style.display = 'block';
-         /* allPlayersAreIn.textContent = "Jaa joukkueet uudelleen"; */
+          reset.style.display = 'block';
         }
       }
 
@@ -96,15 +103,12 @@
 
         // "Step two" button functions
         stepTwo.addEventListener('click', function () {
-          checkInputField.remove();
-          addPlayer.remove();
-          stepTwo.remove();
+          checkInputField.style.display = 'none';
+          addPlayer.style.display = 'none';
+          stepTwo.style.display = 'none';
+          reset.style.display = 'block';
           allPlayersAreIn.style.display = 'block';
-
         });
-
-
-
 
         // "Make teams" button functions
         allPlayersAreIn.addEventListener('click', function () {
@@ -169,6 +173,18 @@
                   getTeamTwoList.appendChild(createItem);
             }
 
+            
+         // "Reset" button functions
+         reset.addEventListener('click', function () {
+          localStorage.removeItem('data');
+          checkInputField.style.display = 'block';
+          addPlayer.style.display = 'block';
+          reset.style.display = 'none';
+          allPlayersAreIn.style.display = 'none';
+          getTeamOneList.innerHTML = '';
+          getTeamTwoList.innerHTML = '';
+        });
+
               }
 
         });
@@ -182,7 +198,8 @@
             <div style="margin: 20px 0px;"><input id="EnterData" style="max-width: 500px; height: 40px;"/></div>
             <div style="margin: 20px 0px;"><button id="addPlayer">Lisää pelaaja</button></div>
             <div style="margin: 20px 0px;"><button id="goToStep2">Kaikki pelaajat syötetty?</button></div>
-            <div style="margin: 20px 0px;"><button id="allPlayersAreIn" data-status="create-elements">Jaa joukkueet</button></div>
+            <div style="margin: 20px 0px;"><button id="resetEverything">Syötä uudet pelaajat</button></div>
+            <div style="margin: 20px 0px;"><button id="allPlayersAreIn">Jaa joukkueet</button></div>
             <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
             <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
         </div>
