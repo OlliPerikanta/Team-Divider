@@ -3,9 +3,12 @@
 
       // Add player button
       const addPlayer = document.getElementById('addPlayer');
-
+      
       // Are all players in button
       const stepTwo = document.getElementById('goToStep2');
+
+      // Are all players in container
+      const allPlayersInContainer = document.getElementById('allPlayersInContainer');
 
       // Make teams button
       const makeTeams = document.getElementById('makeTeams');
@@ -34,8 +37,8 @@
       // Hide "reset" button
       reset.style.display = 'none';
 
-      // Hide "step two" button
-      stepTwo.style.display = 'none';
+      // Hide "All players in container"
+      allPlayersInContainer.style.display = 'none';
 
       // Hide "Add more players" button
       addMorePlayers.style.display = 'none';
@@ -49,7 +52,7 @@
           if (checkPlayerCount.length >= 3) {
               inputField.style.display = 'none';
               addPlayer.style.display = 'none';
-              stepTwo.style.display = 'none';
+              allPlayersInContainer.style.display = 'none';
               makeTeams.style.display = 'block';
               addMorePlayers.style.display = 'block';
               reset.style.display = 'block';
@@ -97,76 +100,83 @@
 
           //Check if there is 3 or more players in (show 'make teams button')
           if (checkPlayerCount.length >= 3) {
-              stepTwo.style.display = 'block';
+              allPlayersInContainer.style.display = 'block';
           }
 
       });
 
-      // "Make teams" button functions
-      makeTeams.addEventListener('click', function () {
+      const makeTeams2 = document.getElementsByClassName('make_teams');
+      for (const makeTeam of makeTeams2) {
 
-          if (localStorage.getItem('data') != null) {
+        // "Make teams" button functions
+      makeTeam.addEventListener('click', function () {
 
-              // Get given players
-              const array = JSON.parse(localStorage.getItem('data'));
+        if (localStorage.getItem('data') != null) {
 
-              // Shuffle players
-              function shuffleArray(array) {
-                  for (let i = array.length - 1; i > 0; i--) {
-                      const j = Math.floor(Math.random() * (i + 1));
-                      const temp = array[i];
-                      array[i] = array[j];
-                      array[j] = temp;
-                  }
-                  return array;
-              };
+            // Get given players
+            const array = JSON.parse(localStorage.getItem('data'));
 
-              // Shuffled players
-              const shuffledArray = shuffleArray(array);
+            // Shuffle players
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    const temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+                return array;
+            };
 
-              // Cut shuffled players in to two different teams
-              const fullListPlayers = shuffledArray;
-              const half = Math.ceil(fullListPlayers.length / 2);
+            // Shuffled players
+            const shuffledArray = shuffleArray(array);
 
-              const firstHalf = fullListPlayers.slice(0, half);
-              const secondHalf = fullListPlayers.slice(half);
+            // Cut shuffled players in to two different teams
+            const fullListPlayers = shuffledArray;
+            const half = Math.ceil(fullListPlayers.length / 2);
 
-              // Delete old team 1 before creating new team
-              if (getTeamOneList.childNodes.length > 0) {
-                  getTeamOneList.innerHTML = '';
-              }
+            const firstHalf = fullListPlayers.slice(0, half);
+            const secondHalf = fullListPlayers.slice(half);
 
-              for (const teamOne of firstHalf) {
-                  const createItem = document.createElement('li');
-                  const insertPlayer = document.createTextNode(teamOne);
+            // Delete old team 1 before creating new team
+            if (getTeamOneList.childNodes.length > 0) {
+                getTeamOneList.innerHTML = '';
+            }
 
-                  createItem.appendChild(insertPlayer);
+            for (const teamOne of firstHalf) {
+                const createItem = document.createElement('li');
+                const insertPlayer = document.createTextNode(teamOne);
 
-                  getTeamOneList.appendChild(createItem);
-              }
+                createItem.appendChild(insertPlayer);
 
-              // Delete old team 2 before creating new team
-              if (getTeamTwoList.childNodes.length > 0) {
+                getTeamOneList.appendChild(createItem);
+            }
 
-                  getTeamTwoList.innerHTML = '';
-              }
+            // Delete old team 2 before creating new team
+            if (getTeamTwoList.childNodes.length > 0) {
 
-              for (const teamTwo of secondHalf) {
-                  const createItem = document.createElement('li');
-                  const insertPlayer = document.createTextNode(teamTwo);
-                  createItem.appendChild(insertPlayer);
-                  getTeamTwoList.appendChild(createItem);
-              }
+                getTeamTwoList.innerHTML = '';
+            }
 
-          }
+            for (const teamTwo of secondHalf) {
+                const createItem = document.createElement('li');
+                const insertPlayer = document.createTextNode(teamTwo);
+                createItem.appendChild(insertPlayer);
+                getTeamTwoList.appendChild(createItem);
+            }
 
-      });
+        }
+
+    });
+
+    }
+
+      
 
       // "Step two" button functions
       stepTwo.addEventListener('click', function () {
           inputField.style.display = 'none';
           addPlayer.style.display = 'none';
-          stepTwo.style.display = 'none';
+          allPlayersInContainer.style.display = 'none';
           reset.style.display = 'block';
           makeTeams.style.display = 'block';
           addMorePlayers.style.display = 'block';
