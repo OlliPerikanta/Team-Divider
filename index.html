@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -7,23 +8,28 @@
   <link rel="stylesheet" href="./CSS/styles.css" media="all">
   <script type="text/javascript" src="./JS/team-divider.js"></script>
 </head>
-<body>
-    <div class="app-container">
-      <span class="background-dimmer"></span>
-        <div class="app-inner-container">
-            <input class="form_field" id="EnterData" placeholder="Syötä pelaajan nimi..."/>
-            <button class="form_button" id="addPlayer">Lisää pelaaja</button>
-            <div class="all-players-in-container" id="allPlayersInContainer">
-              <p style="text-align: center; color: white;">Kaikki pelaajat syötetty?</p>
-              <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet tästä</button></p>
-            </div>
-            <button class="form_button" id="resetEverything">Aloita alusta</button>
-            <button class="form_button" id="addMorePlayers">Lisää pelaajia</button>
-            <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
-            <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
-            <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
-        </div>
 
+<body>
+  <div class="app-container">
+    <span class="background-dimmer"></span>
+    <div class="app-inner-container">
+      <h1 style="text-align: center; color: white; font-size: 37px;">Sekoita joukkueet kätevästi ja helposti</h1>
+      <ul class="entered-players" id="enteredPlayers"></ul>
+      <input class="form_field" id="EnterData" placeholder="Syötä pelaajan nimi..." />
+      <button class="form_button" id="addPlayer">Lisää pelaaja</button>
+      <div class="all-players-in-container" id="allPlayersInContainer">
+        <p style="text-align: center; color: white;">Kaikki pelaajat syötetty?</p>
+        <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
+            tästä</button></p>
+      </div>
+      <button class="form_button" id="resetEverything">Aloita alusta</button>
+      <button class="form_button" id="addMorePlayers">Lisää pelaajia</button>
+      <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
+      <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
+      <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
     </div>
+
+  </div>
 </body>
+
 </html>
