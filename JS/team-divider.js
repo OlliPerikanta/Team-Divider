@@ -46,6 +46,10 @@
       // Hide "Add more players" button
       addMorePlayers.style.display = 'none';
 
+      if (addPlayer.disabled == true) {
+        addPlayer.classList.add('disabled-button');
+    }
+
       if (localStorage.getItem('data') != null) {
 
           // Get given players
@@ -75,6 +79,7 @@
           } else {
 
               addPlayer.disabled = false;
+              addPlayer.classList.remove('disabled-button');
 
           }
 
@@ -98,6 +103,7 @@
           inputField.value = '';
 
           addPlayer.disabled = true;
+          addPlayer.classList.add('disabled-button');
 
           // Get given players
           const checkPlayerCount = JSON.parse(localStorage.getItem('data'));

@@ -50,13 +50,16 @@ body {
          url('../fonts/montserrat-v24-latin-900.svg#Montserrat') format('svg'); /* Legacy iOS */
   }
 
-.app-container {
+  .app-body {
     width: 100%;
     height: 100vh;
     background-image: url('../IMG/joukkuejako-taustakuva.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+  }
+.app-container {
+    padding: 0px 20px;
 }
 
 .background-dimmer {
@@ -76,6 +79,8 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
     flex-direction: column;
     position: relative;
     z-index: 10;
+    max-width: 950px;
+    margin: 0px auto;
 }
 
 .form_field {
@@ -128,4 +133,10 @@ background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, F
 .form_button:active, .form_button:hover, .form_button:focus {
     background-color: #00AA4A;
     border-color: #00AA4A;
+}
+
+.disabled-button {
+    background-color: grey!important;
+    border-color: grey!important;
+    cursor: not-allowed;
 }
