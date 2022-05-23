@@ -12,24 +12,29 @@
 <body>
   <div class="app-body">
     <span class="background-dimmer"></span>
-    <div class="app-container"></div>
+    <div class="app-container">
     <div class="app-inner-container">
       <h1 style="text-align: center; color: white; font-size: 37px;">Joukkuejako -sovellus luo ja sekoittaa joukkueet puolestasi!</h1>
-      <div style="color: white; text-align: center;"><p>Joukkuejako-sovelluksen avulla luot helposti 2 eri joukkuetta, jotka luodaan täysin sattumanvaraisesti! Sinun tarvitsee vain syöttää kaikkien pelaajien nimet yksitellen alta löytyvään kenttään ja edetä ohjeiden mukaisesti tehdäksesi joukkueet.</p></div>
+      <div style="color: white; text-align: center;"><p>Yksinkertaisen Joukkuejako-sovelluksen avulla luot helposti 2 eri joukkuetta, jotka luodaan täysin sattumanvaraisesti! Sinun tarvitsee vain syöttää kaikkien pelaajien nimet yksitellen alta löytyvään kenttään ja antaa sovelluksen hoitaa sekoittamisen.</p></div>
       <ul class="entered-players" id="enteredPlayers"></ul>
-      <input class="form_field" id="EnterData" placeholder="Syötä pelaajan nimi..." />
+      <input class="form_field" id="EnterData" placeholder="Syötä pelaajien nimet yksitellen..." />
       <button class="form_button" id="addPlayer">Lisää pelaaja</button>
       <div class="all-players-in-container" id="allPlayersInContainer">
         <p style="text-align: center; color: white;">Kaikki pelaajat syötetty?</p>
         <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
             tästä</button></p>
       </div>
+      <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
+      <div class="team-divider">
+      <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
+      <hr class="vertical-line">
+      <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
+    </div>
       <button class="form_button" id="resetEverything">Aloita alusta</button>
       <button class="form_button" id="addMorePlayers">Lisää pelaajia</button>
-      <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
-      <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
-      <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
+      <p style="text-align: center; color: white;">Versio: 1.0.0</p>
       <p style="text-align: center; color: white;">Suunnitellut ja kehittänyt Olli Perikanta</p>
+    </div>
     </div>
   </div>
 </div>
