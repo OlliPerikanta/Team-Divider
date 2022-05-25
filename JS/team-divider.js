@@ -31,6 +31,10 @@
       // Entered Players
       const enteredPlayers = document.getElementById('enteredPlayers');
 
+    // Entered Players
+    const sharedTeams = document.getElementById('sharedTeams');
+      
+
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
 
@@ -45,6 +49,9 @@
 
       // Hide "Add more players" button
       addMorePlayers.style.display = 'none';
+
+      // Hide "Shared teams container" button
+      sharedTeams.style.display = 'none';
 
       if (addPlayer.disabled == true) {
         addPlayer.classList.add('disabled-button');
@@ -205,6 +212,7 @@
           makeTeams.style.display = 'block';
           addMorePlayers.style.display = 'block';
           enteredPlayers.style.display = 'none';
+          sharedTeams.style.display = 'grid';
       });
 
       // "Reset" button functions
@@ -215,6 +223,7 @@
           reset.style.display = 'none';
           addMorePlayers.style.display = 'none';
           makeTeams.style.display = 'none';
+          sharedTeams.style.display = 'none';
           getTeamOneList.innerHTML = '';
           getTeamTwoList.innerHTML = '';
           enteredPlayers.innerHTML = '';
@@ -226,6 +235,7 @@
           addPlayer.style.display = 'block';
           makeTeams.style.display = 'none';
           addMorePlayers.style.display = 'none';
+          sharedTeams.style.display = 'none';
           reset.style.display = 'none';
           getTeamOneList.innerHTML = '';
           getTeamTwoList.innerHTML = '';

@@ -69,7 +69,8 @@ body {
 
 .app-body {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     background-image: url('../IMG/joukkuejako-taustakuva.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -169,7 +170,7 @@ body {
     cursor: not-allowed;
 }
 
-.team-divider {
+.shared-teams {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 0px 0px;
