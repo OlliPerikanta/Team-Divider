@@ -31,9 +31,8 @@
       // Entered Players
       const enteredPlayers = document.getElementById('enteredPlayers');
 
-    // Entered Players
-    const sharedTeams = document.getElementById('sharedTeams');
-      
+      // Entered Players
+      const sharedTeams = document.getElementById('sharedTeams');
 
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
@@ -54,8 +53,8 @@
       sharedTeams.style.display = 'none';
 
       if (addPlayer.disabled == true) {
-        addPlayer.classList.add('disabled-button');
-    }
+          addPlayer.classList.add('disabled-button');
+      }
 
       if (localStorage.getItem('data') != null) {
 
