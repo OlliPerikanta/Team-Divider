@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: Montserrat;
     line-height: 1.6;
-    min-height: 100%;
+   
 }
 
 body {
@@ -80,13 +80,16 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 .app-container {
     padding: 0px 20px;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-evenly;
 }
 
 .background-dimmer {
@@ -256,10 +259,7 @@ body {
     color: #fff;
 }
 
-/*.team-list li {
-    padding: 2px 13px;
-    border-radius: 20px;
-    margin: 5px;
-    color: #fff;
-    background-color: rgba(90, 187, 255, 0.6);
-} */
+.app-info {
+    position: relative;
+    margin: 40px 0px 0px;
+}
