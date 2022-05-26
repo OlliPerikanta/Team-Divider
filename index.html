@@ -13,32 +13,41 @@
   <div class="app-body">
     <span class="background-dimmer"></span>
     <div class="app-container">
-    <div class="app-inner-container">
-      <h1 style="text-align: center; color: white; font-size: 37px;">Joukkuejako -sovellus luo ja sekoittaa joukkueet puolestasi!</h1>
-      <div style="color: white; text-align: center;"><p>Yksinkertaisen Joukkuejako-sovelluksen avulla luot helposti 2 eri joukkuetta, jotka luodaan täysin sattumanvaraisesti! Sinun tarvitsee vain syöttää kaikkien pelaajien nimet yksitellen alta löytyvään kenttään ja antaa sovelluksen hoitaa sekoittamisen.</p></div>
-      <ul class="entered-players" id="enteredPlayers"></ul>
-      <input class="form_field" id="EnterData" placeholder="Syötä pelaajien nimet yksitellen..." />
-      <button class="form_button" id="addPlayer">Lisää pelaaja</button>
-      <div class="all-players-in-container" id="allPlayersInContainer">
-        <p style="text-align: center; color: white;">Kaikki pelaajat syötetty?</p>
-        <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
-            tästä</button></p>
+      <div class="app-inner-container">
+        <h1 style="text-align: center; color: white; font-size: 37px;">Joukkuejako -sovellus luo ja sekoittaa joukkueet
+          puolestasi!</h1>
+        <div style="color: white; text-align: center;">
+          <p style="display: none;">Yksinkertaisen Joukkuejako-sovelluksen avulla luot helposti 2 eri joukkuetta, jotka luodaan täysin
+            sattumanvaraisesti! Sinun tarvitsee vain syöttää kaikkien pelaajien nimet yksitellen alta löytyvään kenttään
+            ja antaa sovelluksen hoitaa sekoittamisen.</p>
+        </div>
+        <ul class="entered-players" id="enteredPlayers"></ul>
+        <div class="player-input-container">
+          <input class="form_field" id="EnterData" placeholder="Syötä pelaajien nimet yksitellen..." />
+          <button class="form_button form_field_button" id="addPlayer">Lisää pelaaja</button>
+        </div>
+        <div class="all-players-in-container" id="allPlayersInContainer">
+          <p style="text-align: center; color: white;">Kaikki pelaajat syötetty?</p>
+          <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
+              tästä</button></p>
+        </div>
+        <button class="form_button" id="addMorePlayers" style="display: none!important;">Lisää pelaajia</button>
+        <h2 style="color: #fff; display: none;">Jaetut joukkueet</h2>
+        <div id="sharedTeams" class="shared-teams">
+          <ul class="team-list" id="team1"></ul>
+          <hr class="vertical-line">
+          <ul class="team-list" id="team2"></ul>
+        </div>
+        <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
+        <button class="rese-button" id="resetEverything">Aloita alusta</button>
       </div>
-      <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
-      <div id="sharedTeams" class="shared-teams">
-      <ul style="margin-top: 50px; background-color: aqua;" id="team1"></ul>
-      <hr class="vertical-line">
-      <ul style="margin-top: 50px; background-color: aquamarine;" id="team2"></ul>
-    </div>
-      <button class="form_button" id="resetEverything">Aloita alusta</button>
-      <button class="form_button" id="addMorePlayers">Lisää pelaajia</button>
-    </div>
-    <div style="flex-direction: column; height: 100%; display: flex; justify-content: flex-end; position: relative;">
-          <p style="text-align: center; color: white;">Versio: 1.0.0</p>
-          <p style="text-align: center; color: white;">Suunnitellut ja kehittänyt Olli Perikanta</p></div>
+      <div style="flex-direction: column; height: 100%; display: flex; justify-content: flex-end; position: relative;">
+        <p style="text-align: center; color: white;">Versio: 1.0.0</p>
+        <p style="text-align: center; color: white; margin-top: 0px;">Suunnitellut ja kehittänyt Olli Perikanta</p>
+      </div>
     </div>
   </div>
-</div>
+  </div>
 </body>
 
 <footer>
