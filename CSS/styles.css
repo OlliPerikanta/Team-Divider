@@ -76,7 +76,7 @@ body {
     width: 100%;
     min-height: 100vh;
     height: auto;
-    background-image: url('../IMG/joukkuejako-taustakuva.jpg');
+    background-image: url('../IMG/joukkuejako-taustakuva-optimoitu.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -262,4 +262,20 @@ body {
 .app-info {
     position: relative;
     margin: 40px 0px 0px;
+}
+
+
+/* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+Mobile settings
+
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+@media only screen and (min-width: 688px) {
+    
+h1 {
+
+    font-size: 25px;
+
+}
 }
