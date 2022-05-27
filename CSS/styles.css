@@ -16,6 +16,13 @@ body {
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 37px;
+
+}
+
 .entered-players {
     list-style-type: none;
     margin: 0;
