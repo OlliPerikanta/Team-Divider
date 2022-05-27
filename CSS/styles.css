@@ -271,7 +271,7 @@ Mobile settings
 
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
-@media only screen and (min-width: 688px) {
+@media only screen and (max-width: 688px) {
     
 h1 {
 
