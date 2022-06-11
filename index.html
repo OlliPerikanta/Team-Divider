@@ -2,8 +2,9 @@
 <html lang="fi">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Joukkuejako-sovellus | Luo ja sekoita joukkueet helposti</title>
 	<meta name="description" content="Joukkuejako-sovellus ei vaadi kirjautumista tai erillistä latausta. Sovellus toimii selainpohjaisesti ja käyttäminen on maksutonta!" />
 	<link rel="canonical" href="https://olliperikanta.github.io/Team-Divider/" />
@@ -25,6 +26,12 @@
 
   <link rel="stylesheet" href="./css/styles.css" media="all">
   <script type="text/javascript" src="./js/team-divider.js"></script>
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#001730">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#001730">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#001730"> 
 </head>
 
 <body>
@@ -54,9 +61,15 @@
             osallistuja</button>
           <h2 style="color: #fff; display: none;">Jaetut joukkueet</h2>
           <div id="sharedTeams" class="shared-teams">
+            <div class="team-one">
+              <h4 class="team-title">Joukkue 1</h4>
             <ul class="team-list" id="team1"></ul>
+          </div>
             <hr class="vertical-line">
+            <div class="team-two">
+              <h4 class="team-title">Joukkue 2</h4>
             <ul class="team-list" id="team2"></ul>
+          </div>
           </div>
           <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
           <button class="rese-button" id="resetEverything">Palauta sovellus alkutilaan</button>

@@ -320,7 +320,6 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2px 13px;
     border-radius: 4px;
     padding: 10px 0px;
     margin: 5px;
@@ -373,6 +372,18 @@ h1 {
     margin: 0px 0px 40px;
 }
 
+.team-one, .team-two {
+    
+}
+
+.team-title {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+   
+}
+
+/* Spinner styles */
 
 .loading-circle {
     margin: 0 auto;

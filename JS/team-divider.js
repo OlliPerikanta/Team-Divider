@@ -1,6 +1,12 @@
   // Domainiksi "tiimijakaja.fi, joukkuejako.fi"
   document.addEventListener("DOMContentLoaded", function () {
 
+    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+    Define DOM id's and classes
+
+    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
       // Add player button
       const addPlayer = document.getElementById('addPlayer');
 
@@ -34,6 +40,65 @@
       // Entered Players
       const sharedTeams = document.getElementById('sharedTeams');
 
+      // Team maker function
+      function teamMaker() {
+
+          if (localStorage.getItem('data') != null) {
+
+              // Get given players
+              const array = JSON.parse(localStorage.getItem('data'));
+
+              // Shuffle players
+              function shuffleArray(array) {
+                  for (let i = array.length - 1; i > 0; i--) {
+                      const j = Math.floor(Math.random() * (i + 1));
+                      const temp = array[i];
+                      array[i] = array[j];
+                      array[j] = temp;
+                  }
+                  return array;
+              };
+
+              // Shuffled players
+              const shuffledArray = shuffleArray(array);
+
+              // Cut shuffled players in to two different teams
+              const fullListPlayers = shuffledArray;
+              const half = Math.ceil(fullListPlayers.length / 2);
+
+              const firstHalf = fullListPlayers.slice(0, half);
+              const secondHalf = fullListPlayers.slice(half);
+
+              // Delete old team 1 before creating new team
+              if (getTeamOneList.childNodes.length > 0) {
+                  getTeamOneList.innerHTML = '';
+              }
+
+              for (const teamOne of firstHalf) {
+                  const createItem = document.createElement('li');
+                  const insertPlayer = document.createTextNode(teamOne);
+
+                  createItem.appendChild(insertPlayer);
+
+                  getTeamOneList.appendChild(createItem);
+              }
+
+              // Delete old team 2 before creating new team
+              if (getTeamTwoList.childNodes.length > 0) {
+
+                  getTeamTwoList.innerHTML = '';
+              }
+
+              for (const teamTwo of secondHalf) {
+                  const createItem = document.createElement('li');
+                  const insertPlayer = document.createTextNode(teamTwo);
+                  createItem.appendChild(insertPlayer);
+                  getTeamTwoList.appendChild(createItem);
+              }
+
+          }
+      }
+
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
 
@@ -58,10 +123,13 @@
 
       if (localStorage.getItem('data') != null) {
 
+          // Call teamMaker function
+          teamMaker();
+
           // Get given players
           const checkPlayerCount = JSON.parse(localStorage.getItem('data'));
 
-          //Check if there is 3 or more players in (show 'make teams button')
+          //We have entered data, so we need to show right view
           if (checkPlayerCount.length >= 3) {
               inputField.style.display = 'none';
               addPlayer.style.display = 'none';
@@ -69,6 +137,7 @@
               makeTeams.style.display = 'block';
               addMorePlayers.style.display = 'block';
               reset.style.display = 'block';
+              sharedTeams.style.display = 'grid';
           }
       }
 
@@ -141,66 +210,12 @@
           // "Make teams" button functions
           makeTeam.addEventListener('click', function () {
 
-              if (localStorage.getItem('data') != null) {
-
-                  // Get given players
-                  const array = JSON.parse(localStorage.getItem('data'));
-
-                  // Shuffle players
-                  function shuffleArray(array) {
-                      for (let i = array.length - 1; i > 0; i--) {
-                          const j = Math.floor(Math.random() * (i + 1));
-                          const temp = array[i];
-                          array[i] = array[j];
-                          array[j] = temp;
-                      }
-                      return array;
-                  };
-
-                  // Shuffled players
-                  const shuffledArray = shuffleArray(array);
-
-                  // Cut shuffled players in to two different teams
-                  const fullListPlayers = shuffledArray;
-                  const half = Math.ceil(fullListPlayers.length / 2);
-
-                  const firstHalf = fullListPlayers.slice(0, half);
-                  const secondHalf = fullListPlayers.slice(half);
-
-                  // Delete old team 1 before creating new team
-                  if (getTeamOneList.childNodes.length > 0) {
-                      getTeamOneList.innerHTML = '';
-                  }
-
-                  for (const teamOne of firstHalf) {
-                      const createItem = document.createElement('li');
-                      const insertPlayer = document.createTextNode(teamOne);
-
-                      createItem.appendChild(insertPlayer);
-
-                      getTeamOneList.appendChild(createItem);
-                  }
-
-                  // Delete old team 2 before creating new team
-                  if (getTeamTwoList.childNodes.length > 0) {
-
-                      getTeamTwoList.innerHTML = '';
-                  }
-
-                  for (const teamTwo of secondHalf) {
-                      const createItem = document.createElement('li');
-                      const insertPlayer = document.createTextNode(teamTwo);
-                      createItem.appendChild(insertPlayer);
-                      getTeamTwoList.appendChild(createItem);
-                  }
-
-              }
+              // Call teamMaker function
+              teamMaker();
 
           });
 
       }
-
-
 
       // "Step two" button functions
       stepTwo.addEventListener('click', function () {
@@ -226,6 +241,7 @@
           getTeamOneList.innerHTML = '';
           getTeamTwoList.innerHTML = '';
           enteredPlayers.innerHTML = '';
+          enteredPlayers.style.display = 'block';
       });
 
       // "Add more players" button functions
