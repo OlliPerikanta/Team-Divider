@@ -40,6 +40,33 @@
       // Entered Players
       const sharedTeams = document.getElementById('sharedTeams');
 
+    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+    Custom functions
+
+    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+      function playerData() {
+          
+         // Get given players
+         const getPlayersList = JSON.parse(localStorage.getItem('data'));
+
+          // Delete list of added players before creating new one
+          if (enteredPlayers.childNodes.length > 0) {
+
+            enteredPlayers.innerHTML = '';
+        }
+
+        // Create new list of added players
+        for (const getPlayersLists of getPlayersList) {
+            const createItem = document.createElement('li');
+            const insertPlayer = document.createTextNode(getPlayersLists);
+            createItem.appendChild(insertPlayer);
+            enteredPlayers.appendChild(createItem);
+        }
+    
+      }
+
       // Team maker function
       function teamMaker() {
 
@@ -99,6 +126,14 @@
           }
       }
 
+
+    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+    Page reloaded (refreshed) setup
+
+    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
 
@@ -117,6 +152,9 @@
       // Hide "Shared teams container" button
       sharedTeams.style.display = 'none';
 
+      // Hide entered players list
+      enteredPlayers.style.display = 'none';
+
       if (addPlayer.disabled == true) {
           addPlayer.classList.add('disabled-button');
       }
@@ -125,6 +163,8 @@
 
           // Call teamMaker function
           teamMaker();
+
+          playerData();
 
           // Get given players
           const checkPlayerCount = JSON.parse(localStorage.getItem('data'));
@@ -140,6 +180,16 @@
               sharedTeams.style.display = 'grid';
           }
       }
+
+
+
+    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+    User changes
+
+    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+
+
 
       // Automatically check in input field
       inputField.addEventListener("keyup", function () {
@@ -168,39 +218,25 @@
           if (localStorage.getItem('data') == null) {
               localStorage.setItem('data', '[]');
           }
+          
+          // Get given players
+          const getPlayersList = JSON.parse(localStorage.getItem('data'));
 
-          const added_player = JSON.parse(localStorage.getItem('data'));
+          getPlayersList.push(new_player);
 
-          added_player.push(new_player);
-
-          localStorage.setItem('data', JSON.stringify(added_player));
+          localStorage.setItem('data', JSON.stringify(getPlayersList));
 
           inputField.value = '';
 
           addPlayer.disabled = true;
           addPlayer.classList.add('disabled-button');
 
-          // Get given players
-          const checkPlayerCount = JSON.parse(localStorage.getItem('data'));
-
           //Check if there is 3 or more players in (show 'make teams button')
-          if (checkPlayerCount.length >= 3) {
+          if (getPlayersList.length >= 3) {
               allPlayersInContainer.style.display = 'block';
           }
 
-          // Delete list of added players before creating new one
-          if (enteredPlayers.childNodes.length > 0) {
-
-              enteredPlayers.innerHTML = '';
-          }
-
-          // Create new list of added players
-          for (const added_players of added_player) {
-              const createItem = document.createElement('li');
-              const insertPlayer = document.createTextNode(added_players);
-              createItem.appendChild(insertPlayer);
-              enteredPlayers.appendChild(createItem);
-          }
+          playerData();
 
       });
 
