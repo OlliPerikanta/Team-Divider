@@ -38,9 +38,9 @@
   <main class="app-body">
     <span class="background-dimmer"></span>
     <div class="app-container">
-      <div class="loading-circle"></div>
+
       <div class="app-inner-container">
-        <h1 class="main-title">Joukkuejako -sovellus luo ja sekoittaa joukkueet
+        <h1 class="main-title">Joukkuejako-sovellus luo ja sekoittaa joukkueet
           puolestasi!</h1>
         <div class="text-container">
           <p>Syötä kaikkien osallistujien nimet yksitellen alta löytyvään kenttään
@@ -57,9 +57,9 @@
             <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
                 tästä</button></p>
           </div>
-          <button class="form_button" id="addMorePlayers" style="display: none!important;">Lisää uusi
-            osallistuja</button>
           <h2 style="color: #fff; display: none;">Jaetut joukkueet</h2>
+          <div class="teams-container" id="teamsContainer">
+          <div class="loading-circle" id="loadingAnimation"></div>
           <div id="sharedTeams" class="shared-teams">
             <div class="team-one">
               <h4 class="team-title">Joukkue 1</h4>
@@ -71,7 +71,12 @@
             <ul class="team-list" id="team2"></ul>
           </div>
           </div>
+        </div>
+        <div style="display: inline-flex;">
           <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
+          <button class="form_button form_button_secondary" id="addMorePlayers" style="display: none!important;">Lisää uusi
+            osallistuja</button>
+          </div>
           <button class="rese-button" id="resetEverything">Palauta sovellus alkutilaan</button>
       
       </div>

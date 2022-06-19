@@ -40,6 +40,12 @@
       // Entered Players
       const sharedTeams = document.getElementById('sharedTeams');
 
+      //Teams Container
+      const teamsContainer = document.getElementById('teamsContainer');
+
+      // Loading animation
+    const loadingAnimation = document.getElementById('loadingAnimation');
+
     /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
     Custom functions
@@ -133,6 +139,7 @@
 
     ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
+    loadingAnimation.style.display = 'none';
 
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
@@ -152,8 +159,8 @@
       // Hide "Shared teams container" button
       sharedTeams.style.display = 'none';
 
-      // Hide entered players list
-      enteredPlayers.style.display = 'none';
+      // Hide teams container
+      teamsContainer.style.display = 'none';
 
       if (addPlayer.disabled == true) {
           addPlayer.classList.add('disabled-button');
@@ -178,6 +185,8 @@
               addMorePlayers.style.display = 'block';
               reset.style.display = 'block';
               sharedTeams.style.display = 'grid';
+              teamsContainer.style.display = 'flex';
+              enteredPlayers.style.display = 'none';
           }
       }
 
@@ -245,9 +254,14 @@
 
           // "Make teams" button functions
           makeTeam.addEventListener('click', function () {
-
-              // Call teamMaker function
+            sharedTeams.style.display = 'none';
+            loadingAnimation.style.display = 'block';
+            setTimeout(() => {
+            // Call teamMaker function
               teamMaker();
+              sharedTeams.style.display = 'grid';
+              loadingAnimation.style.display = 'none';
+              }, "1400")
 
           });
 
@@ -262,7 +276,8 @@
           makeTeams.style.display = 'block';
           addMorePlayers.style.display = 'block';
           enteredPlayers.style.display = 'none';
-          sharedTeams.style.display = 'grid';
+          teamsContainer.style.display = 'flex';
+         /* sharedTeams.style.display = 'grid'; */
       });
 
       // "Reset" button functions
@@ -278,6 +293,7 @@
           getTeamTwoList.innerHTML = '';
           enteredPlayers.innerHTML = '';
           enteredPlayers.style.display = 'block';
+          teamsContainer.style.display = 'none';
       });
 
       // "Add more players" button functions
@@ -291,6 +307,7 @@
           getTeamOneList.innerHTML = '';
           getTeamTwoList.innerHTML = '';
           enteredPlayers.style.display = 'block';
+          teamsContainer.style.display = 'none';
       });
 
   });
