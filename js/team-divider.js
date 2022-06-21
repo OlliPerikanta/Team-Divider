@@ -1,11 +1,11 @@
   // Domainiksi "tiimijakaja.fi, joukkuejako.fi"
   document.addEventListener("DOMContentLoaded", function () {
 
-    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+      /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-    Define DOM id's and classes
+      Define DOM id's and classes
 
-    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+      ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
       // Add player button
       const addPlayer = document.getElementById('addPlayer');
@@ -44,37 +44,37 @@
       const teamsContainer = document.getElementById('teamsContainer');
 
       // Loading animation
-    const loadingAnimation = document.getElementById('loadingAnimation');
+      const loadingAnimation = document.getElementById('loadingAnimation');
 
-    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+      /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-    Custom functions
+      Custom functions
 
-    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+      ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
       function playerData() {
-          
-         // Get given players
-         const getPlayersList = JSON.parse(localStorage.getItem('data'));
+
+          // Get given players
+          const getPlayersList = JSON.parse(localStorage.getItem('data'));
 
           // Delete list of added players before creating new one
           if (enteredPlayers.childNodes.length > 0) {
 
-            enteredPlayers.innerHTML = '';
-        }
+              enteredPlayers.innerHTML = '';
+          }
 
-        // Create new list of added players
-        for (const getPlayersLists of getPlayersList) {
-            const createItem = document.createElement('li');
-            const insertPlayer = document.createTextNode(getPlayersLists);
-            createItem.appendChild(insertPlayer);
-            enteredPlayers.appendChild(createItem);
-        }
-    
+          // Create new list of added players
+          for (const getPlayersLists of getPlayersList) {
+              const createItem = document.createElement('li');
+              const insertPlayer = document.createTextNode(getPlayersLists);
+              createItem.appendChild(insertPlayer);
+              enteredPlayers.appendChild(createItem);
+          }
+
       }
 
-      // Team maker function
-      function teamMaker() {
+      // Team shuffle function
+      function teamShuffle() {
 
           if (localStorage.getItem('data') != null) {
 
@@ -132,14 +132,35 @@
           }
       }
 
+      // CreateTeam function
+      function createTeam() {
+          makeTeams.disabled = true;
+          makeTeams.classList.add('disabled-button');
+          reset.disabled = true;
+          addMorePlayers.disabled = true;
+          addMorePlayers.classList.add('disabled-button');
+          sharedTeams.style.display = 'none';
+          loadingAnimation.style.display = 'block';
+          setTimeout(() => {
+              // Call teamShuffle function
+              teamShuffle();
+              sharedTeams.style.display = 'block';
+              loadingAnimation.style.display = 'none';
+              makeTeams.disabled = false;
+              makeTeams.classList.remove('disabled-button');
+              reset.disabled = false;
+              addMorePlayers.disabled = false;
+              addMorePlayers.classList.remove('disabled-button');
+          }, "1400")
+      }
 
-    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+      /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-    Page reloaded (refreshed) setup
+      Page reloaded (refreshed) setup
 
-    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+      ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
-    loadingAnimation.style.display = 'none';
+      loadingAnimation.style.display = 'none';
 
       // Disable "add player" button for start and wait user write something
       addPlayer.disabled = true;
@@ -168,8 +189,8 @@
 
       if (localStorage.getItem('data') != null) {
 
-          // Call teamMaker function
-          teamMaker();
+          // Call teamShuffle function
+          teamShuffle();
 
           playerData();
 
@@ -184,7 +205,7 @@
               makeTeams.style.display = 'block';
               addMorePlayers.style.display = 'block';
               reset.style.display = 'block';
-              sharedTeams.style.display = 'grid';
+              sharedTeams.style.display = 'block';
               teamsContainer.style.display = 'flex';
               enteredPlayers.style.display = 'none';
           }
@@ -192,11 +213,11 @@
 
 
 
-    /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+      /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
-    User changes
+      User changes
 
-    ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
+      ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡ */
 
 
 
@@ -227,7 +248,7 @@
           if (localStorage.getItem('data') == null) {
               localStorage.setItem('data', '[]');
           }
-          
+
           // Get given players
           const getPlayersList = JSON.parse(localStorage.getItem('data'));
 
@@ -249,23 +270,10 @@
 
       });
 
-      const makeTeams2 = document.getElementsByClassName('make_teams');
-      for (const makeTeam of makeTeams2) {
-
-          // "Make teams" button functions
-          makeTeam.addEventListener('click', function () {
-            sharedTeams.style.display = 'none';
-            loadingAnimation.style.display = 'block';
-            setTimeout(() => {
-            // Call teamMaker function
-              teamMaker();
-              sharedTeams.style.display = 'grid';
-              loadingAnimation.style.display = 'none';
-              }, "1400")
-
-          });
-
-      }
+      // "Create teams again" button functions
+      makeTeams.addEventListener('click', function () {
+          createTeam();
+      });
 
       // "Step two" button functions
       stepTwo.addEventListener('click', function () {
@@ -277,7 +285,8 @@
           addMorePlayers.style.display = 'block';
           enteredPlayers.style.display = 'none';
           teamsContainer.style.display = 'flex';
-         /* sharedTeams.style.display = 'grid'; */
+          createTeam();
+          /* sharedTeams.style.display = 'grid'; */
       });
 
       // "Reset" button functions

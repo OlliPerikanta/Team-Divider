@@ -23,21 +23,23 @@ body {
 }
 
 h1 {
-    text-align: center;
-    color: white;
     font-size: 37px;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .main-title {
     text-transform: uppercase;
     font-weight: 900;
+    color: #fff;
 }
 
 .entered-players {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    text-align: center;
     margin: 0px 0px 20px;
 }
 
@@ -259,15 +261,14 @@ h1 {
     line-height: 1.6;
     font-weight: 600;
     font-family: 'Montserrat';
-    text-align: center;
     text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    background-color: #1ACE6E;
-    border: 2px solid #1ACE6E;
+    background-color: #08BC5C;
+    border: 2px solid #08BC5C;
     padding: 10px;
     font-size: 1rem;
     border-radius: 0.25rem;
@@ -277,8 +278,8 @@ h1 {
 .form_button:active,
 .form_button:hover,
 .form_button:focus {
-    background-color: #00AA4A;
-    border-color: #00AA4A;
+    background-color: #00A343;
+    border-color: #00A343;
 }
 
 .form_button_secondary {
@@ -315,34 +316,42 @@ h1 {
 .teams-container {
     display: flex;
     align-items: center;
-    min-height: 350px;
+    min-height: 300px;
+    justify-content: center;
+    width: 100%;
 }
 
-.shared-teams {
+.shared-teams-container {
+    margin: 0px 0px 40px;
+    max-width: 431px;
+    width: 100%;
+    color: #fff;
+}
+
+.shared-teams-inner-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-gap: 0px 0px;
     border-top: 1px solid #DCDFEA;
-    margin: 40px 0px 40px;
-    max-width: 350px;
-    width: 100%;
-    padding: 20px 5px;
+    padding: 20px 0px;
 }
 
-.shared-teams #team1,
-.shared-teams #team2 {
+.shared-teams-inner-container #team1,
+.shared-teams-inner-container #team2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     padding: 10px 10px;
-    text-align: center;
     margin: 5px;
     font-weight: 600;
     color: #fff;
     background-color: rgba(90, 187, 255, 0.6);
+}
 
+.team-one, .team-two {
+    grid-column: span 2;
 }
 
 .vertical-line {
@@ -351,6 +360,7 @@ h1 {
     border-top: 0px;
     border-left: 0px;
     border-bottom: 0px;
+    grid-column: span 1;
 }
 
 .player-input-container {
@@ -371,6 +381,7 @@ h1 {
 .app-info {
     position: relative;
     margin: 40px 0px 0px;
+    color: #fff;
 }
 
 .text-container p {
@@ -380,20 +391,18 @@ h1 {
 }
 
 .text-container {
-    text-align: center; 
     margin: 0px 0px 40px;
 }
 
 .all-players-in-container {
     margin: 20px 0px 0px;
+    color: #fff;
     
 }
 
 .team-title {
     text-transform: uppercase;
     color: #fff;
-    text-align: center;
-   
 }
 
 /* Spinner styles */

@@ -5,33 +5,37 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Joukkuejako-sovellus | Luo ja sekoita joukkueet helposti</title>
-	<meta name="description" content="Joukkuejako-sovellus ei vaadi kirjautumista tai erillistä latausta. Sovellus toimii selainpohjaisesti ja käyttäminen on maksutonta!" />
-	<link rel="canonical" href="https://olliperikanta.github.io/Team-Divider/" />
-	<meta property="og:locale" content="fi_FI" />
-	<meta property="og:type" content="website" />
-	<meta property="og:title" content="Joukkuejako-sovellus | Luo ja sekoita joukkueet helposti" />
-	<meta property="og:description" content="Joukkuejako-sovellus ei vaadi kirjautumista tai erillistä latausta. Sovellus toimii selainpohjaisesti ja käyttäminen on maksutonta!" />
-	<meta property="og:url" content="https://olliperikanta.github.io/Team-Divider/" />
-	<meta property="og:site_name" content="Joukkuejako-sovellus" />
-	<meta property="article:modified_time" content="2022-06-08T20:36:27+00:00" />
-	<meta property="og:image" content="https://olliperikanta.github.io/Team-Divider/img/joukkuejako-sovellus-social-media.png" />
-	<meta property="og:image:width" content="1200" />
-	<meta property="og:image:height" content="630" />
-	<meta property="og:image:type" content="image/png" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content="https://olliperikanta.github.io/Team-Divider/img/joukkuejako-sovellus-social-media.png" />
-	<meta name="twitter:label1" content="Arvioitu lukuaika" />
-	<meta name="twitter:data1" content="1 minuuttia" />
+  <title>Joukkuejako-sovellus | Luo ja sekoita joukkueet helposti</title>
+  <meta name="description"
+    content="Joukkuejako-sovellus ei vaadi kirjautumista tai erillistä latausta. Sovellus toimii selainpohjaisesti ja käyttäminen on maksutonta!" />
+  <link rel="canonical" href="https://olliperikanta.github.io/Team-Divider/" />
+  <meta property="og:locale" content="fi_FI" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Joukkuejako-sovellus | Luo ja sekoita joukkueet helposti" />
+  <meta property="og:description"
+    content="Joukkuejako-sovellus ei vaadi kirjautumista tai erillistä latausta. Sovellus toimii selainpohjaisesti ja käyttäminen on maksutonta!" />
+  <meta property="og:url" content="https://olliperikanta.github.io/Team-Divider/" />
+  <meta property="og:site_name" content="Joukkuejako-sovellus" />
+  <meta property="article:modified_time" content="2022-06-08T20:36:27+00:00" />
+  <meta property="og:image"
+    content="https://olliperikanta.github.io/Team-Divider/img/joukkuejako-sovellus-social-media.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image"
+    content="https://olliperikanta.github.io/Team-Divider/img/joukkuejako-sovellus-social-media.png" />
+  <meta name="twitter:label1" content="Arvioitu lukuaika" />
+  <meta name="twitter:data1" content="1 minuuttia" />
 
   <link rel="stylesheet" href="./css/styles.css" media="all">
   <script type="text/javascript" src="./js/team-divider.js"></script>
   <!-- Chrome, Firefox OS and Opera -->
-  <meta name="theme-color" content="#001730">
+  <meta name="theme-color" content="#000428">
   <!-- Windows Phone -->
-  <meta name="msapplication-navbutton-color" content="#001730">
+  <meta name="msapplication-navbutton-color" content="#000428">
   <!-- iOS Safari -->
-  <meta name="apple-mobile-web-app-status-bar-style" content="#001730"> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000428">
 </head>
 
 <body>
@@ -40,57 +44,56 @@
     <div class="app-container">
 
       <div class="app-inner-container">
-        <h1 class="main-title">Joukkuejako-sovellus luo ja sekoittaa joukkueet
+        <h1 class="main-title text-center">Joukkuejako-sovellus luo ja sekoittaa joukkueet
           puolestasi!</h1>
-        <div class="text-container">
+        <div class="text-container text-center">
           <p>Syötä kaikkien osallistujien nimet yksitellen alta löytyvään kenttään
             ja anna sovelluksen hoitaa 2 eri joukkueen luonti ja sekoittaminen</p>
         </div>
-        
-          <ul class="entered-players" id="enteredPlayers"></ul>
-          <div class="player-input-container">
-            <input class="form_field" id="EnterData" placeholder="Syötä osallistujien nimet yksitellen..." />
-            <button class="form_button form_field_button" id="addPlayer">Lisää osallistuja</button>
-          </div>
-          <div class="all-players-in-container" id="allPlayersInContainer">
-            <p style="text-align: center; color: white;">Kaikki osallistujat syötetty?</p>
-            <p style="text-align: center;"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
-                tästä</button></p>
-          </div>
-          <h2 style="color: #fff; display: none;">Jaetut joukkueet</h2>
-          <div class="teams-container" id="teamsContainer">
+
+        <ul class="entered-players text-center" id="enteredPlayers"></ul>
+        <div class="player-input-container">
+          <input class="form_field" id="EnterData" placeholder="Syötä osallistujien nimet yksitellen..." />
+          <button class="form_button text-center form_field_button" id="addPlayer">Lisää osallistuja</button>
+        </div>
+        <div class="all-players-in-container" id="allPlayersInContainer">
+          <p class="text-center">Kaikki osallistujat syötetty?</p>
+          <p class="text-center"><button class="make_teams form_button" id="goToStep2">Luo joukkueet
+              tästä</button></p>
+        </div>
+        <div class="teams-container" id="teamsContainer">
           <div class="loading-circle" id="loadingAnimation"></div>
-          <div id="sharedTeams" class="shared-teams">
-            <div class="team-one">
-              <h4 class="team-title">Joukkue 1</h4>
-            <ul class="team-list" id="team1"></ul>
-          </div>
-            <hr class="vertical-line">
-            <div class="team-two">
-              <h4 class="team-title">Joukkue 2</h4>
-            <ul class="team-list" id="team2"></ul>
-          </div>
+          <div id="sharedTeams" class="shared-teams-container">
+            <h2 class="text-center">Jaetut joukkueet</h2>
+            <div class="shared-teams-inner-container">
+              <div class="team-one">
+                <h4 class="team-title text-center">Joukkue 1</h4>
+                <ul class="team-list text-center" id="team1"></ul>
+              </div>
+              <hr class="vertical-line">
+              <div class="team-two">
+                <h4 class="team-title text-center">Joukkue 2</h4>
+                <ul class="team-list text-center" id="team2"></ul>
+              </div>
+            </div>
           </div>
         </div>
         <div style="display: inline-flex;">
-          <button class="make_teams form_button" id="makeTeams">Luo joukkueet uudelleen</button>
-          <button class="form_button form_button_secondary" id="addMorePlayers" style="display: none!important;">Lisää uusi
-            osallistuja</button>
-          </div>
-          <button class="rese-button" id="resetEverything">Palauta sovellus alkutilaan</button>
-      
+          <button class="make_teams text-center form_button" id="makeTeams">Luo joukkueet uudelleen</button>
+          <button class="form_button text-center form_button_secondary" id="addMorePlayers" style="display: none!important;">Lisää uusi osallistuja</button>
+        </div>
+        <button class="rese-button" id="resetEverything">Palauta sovellus alkutilaan</button>
+
       </div>
       <div class="app-info">
-        <p style="text-align: center; color: white;">Versio: 1.0.0</p>
-        <p style="text-align: center; color: white; margin-top: 0px;">Suunnitellut ja kehittänyt Olli Perikanta</p>
+        <p class="text-center">Versio: 1.0.0</p>
+        <p class="text-center" style="margin-top: 0px;">Suunnitellut ja kehittänyt Olli Perikanta</p>
       </div>
     </div>
     </div>
   </main>
 </body>
-
 <footer>
-
 </footer>
 
 </html>
