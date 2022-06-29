@@ -239,6 +239,8 @@ h1 {
     appearance: none;
     border-radius: 0.25rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    width: 100%;
+    max-width: 310px;
 }
 
 .form_field:focus {
@@ -435,8 +437,27 @@ h1 {
     100% {transform: rotate(360deg);}
 }
   
+/* Cookie button */
+.cookie-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    background: #000428;
+    padding: 7px;
+    border-radius: 50%;
+    line-height: 0;
+    cursor: pointer;
+}
 
+.termsfeed-com---palette-light .cc-nb-reject {
+    background-color: #eaeaea!important;
+    color: #111!important;
+}
 
+.termsfeed-com---palette-light .cc-cp-foot-byline {
+    visibility: hidden;
+    opacity: 0;
+}
 /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
 
 Mobile settings
