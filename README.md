@@ -1,2 +1,2 @@
-# Team-Divider
+# Team-Divider - joukkuejako.fi
  This is made for fun to make easier get football teams without thinking who plays in what team
