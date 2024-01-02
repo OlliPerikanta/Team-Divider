@@ -1,4 +1,3 @@
-  // Domainiksi "tiimijakaja.fi, joukkuejako.fi"
   document.addEventListener("DOMContentLoaded", function () {
 
       /* ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
